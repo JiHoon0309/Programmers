@@ -8,6 +8,7 @@ def solution(progresses, speeds):
             progresses[i]+=speeds[i]
             count+=1
         arr.append(count)
+        
     temp=arr[0]
     for i in range(1,len(arr)):
         if temp>=arr[i]:
@@ -18,5 +19,3 @@ def solution(progresses, speeds):
             c=1
     answer.append(c)    
     return answer
-
-print(solution([95, 90, 99, 99, 80, 99],[1, 1, 1, 1, 1, 1]))
