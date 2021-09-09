@@ -1,6 +1,7 @@
 def solution(scores):
     result=[]
     scores_sum=[]
+    temp=0
     for i in range(len(scores)):
         a=[]
         for j in range(len(scores)):
@@ -8,11 +9,12 @@ def solution(scores):
         result.append(a)
     
     for i in range(len(result)):
-        
-        if result[i][i] and (result[i][i]==max(result[i]) or result[i][i]==min(result[i])):
+        if (result[i][i]==max(result[i]) or result[i][i]==min(result[i])):
+            temp=result[i][i]
             result[i].remove(result[i][i])
+        if temp in result[i]:
+            result[i].append(temp)
         scores_sum.append(sum(result[i])/len(result[i]))
-
 
         if scores_sum[i]>=90:
             scores_sum[i]='A'
@@ -26,9 +28,3 @@ def solution(scores):
             scores_sum[i]='F'
 
     return ''.join(scores_sum)
-
-print(solution([[100,90,98,88,65],
-                [50,45,99,85,77],
-                [47,88,95,80,67],
-                [61,57,100,80,65],
-                [24,90,94,75,65]]))
