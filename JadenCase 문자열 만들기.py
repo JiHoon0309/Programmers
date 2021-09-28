@@ -5,7 +5,7 @@ def solution(s):
         word[i]=word[i].lower()
         result=list(word[i])
         if len(result)==0:
-            continue
+            result=''
         else:
             result[0]=result[0].upper()
         join=''.join(result)
