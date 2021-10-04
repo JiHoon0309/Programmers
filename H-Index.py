@@ -1,21 +1,20 @@
 def solution(citations):
     citations.sort()
     result=0
-    if len(citations)<citations[0]:
-        result==len(citations)
+    answer=[]
+
+    if citations[0]>len(citations):
+        result=len(citations)
+    elif citations[0]>0 and citations[0]>len(citations):
+        result=citations[0]
     else:
         for i in range(len(citations)):
-            up=0
-            down=0
+            count=0
             for j in citations:
-                if i<j:
-                    up+=1
-                elif i>j:
-                    down+=1
-                elif i==j:
-                    up+=1
-                    down+=1
-            if i==up:
-                result=up
-    return result
+                if i<=j:
+                    count+=1
+            if i<=count:
+                answer.append(i)
+        result=max(answer)
 
+    return result
