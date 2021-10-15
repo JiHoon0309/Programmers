@@ -11,7 +11,7 @@ def solution(s):
         if i==len(word) or len(word)==0:
             break
 
-    if i==1:
+    if len(word)==0:
         result=1
     else:
         result=0
