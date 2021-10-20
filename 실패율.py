@@ -1,15 +1,21 @@
 def solution(N, stages):
-    result=[]
-    for i in range(1,N+1):
-        count=0
-        count2=0
-        for j in range(len(stages)):
-            if stages[j]>=i:
-                count+=1
-            if stages[j]==i:
-                count2+=1
-        result.append(count2/count)
-        
-    return result
+    stages.sort()
+    i=1
+    list1=[]
+    length=len(stages)
+    sum=0
+    while i<=N:
+        if len(stages)==0:
+            list1.append(sum/length)
+            break
+        if stages[0]==i:
+            sum+=1
+            stages.pop(0)
+        else:
+            list1.append(sum/length)
+            i+=1
+            sum=0 
+
+    return list1
 
 print(solution(5,[2, 1, 2, 6, 2, 4, 3, 3]))
