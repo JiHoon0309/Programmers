@@ -12,5 +12,6 @@ def solution(scoville, K):
         scoville_min2=heapq.heappop(scoville)
         new=scoville_min+(scoville_min2*2)
         heapq.heappush(scoville, new)
-
+    if max(scoville)<K:
+        return -1
     return count
