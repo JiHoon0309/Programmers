@@ -1,9 +1,9 @@
 def solution(A,B):
     result=0
+    A.sort()
+    B.sort()
     for i in range(len(A)):
-        minn=min(A)
-        maxx=max(B)
-        result+=minn*maxx
-        A.remove(minn)
-        B.remove(maxx)
+        result+=A[0]*B[-1]
+        A.pop(0)
+        B.pop()
     return result
